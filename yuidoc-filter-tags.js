@@ -28,10 +28,32 @@ module.exports = function(data, options) {
 	console.log("Filtering tags...");
 
 	if (options["include-only-tags"])
-		console.log("Including only items with the tags: "+[].concat(options["include-only-tags"]));
+		console.log("Including only items with the tags: " + [].concat(options["include-only-tags"]));
 
 	if (options["dont-include-tags"])
-		console.log("Skipping items with the tags: "+[].concat(options["dont-include-tags"]));
+		console.log("Skipping items with the tags: " + [].concat(options["dont-include-tags"]));
+
+	var allTags = [];
+
+	if (options["include-only-tags"])
+		allTags = allTags.concat(options["include-only-tags"]);
+
+	if (options["dont-include-tags"])
+		allTags = allTags.concat(options["dont-include-tags"]);
+
+	var acceptedWarnings = [];
+
+	for (var t in allTags)
+		acceptedWarnings.push("unknown tag: " + allTags[t]);
+
+	var keepWarnings = [];
+
+	for (var w in data.warnings) {
+		if (acceptedWarnings.indexOf(data.warnings[w].message) < 0)
+			keepWarnings.push(data.warnings[w]);
+	}
+
+	data.warnings = keepWarnings;
 
 	var keepClasses = {};
 

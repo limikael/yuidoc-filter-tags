@@ -1,6 +1,6 @@
 {
   "name": "yuidoc-filter-tags",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Preprocessor for yuidoc that makes it possible to filter out parts of the documentation.",
   "main": "yuidoc-filter-tags.js",
   "repository": {
@@ -9,6 +9,6 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/limikael/yuidoc-die-on-warnings",
+  "homepage": "https://github.com/limikael/yuidoc-filter-tags",
   "readmeFilename": "README.md"
 }
